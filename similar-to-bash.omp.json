@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "version": 2,
-  "console_title_template": "{{ if .Root }}root{{ else }}{{ .UserName }}{{ end }}@{{ .HostName }}: {{if eq {{ .Username }} {{ .Folder }} }}~{{ else }}{{ .Folder }}{{ end }}",
+  "console_title_template": "{{ if .Root }}root{{ else }}{{ .UserName }}{{ end }}@{{ .HostName }}: {{ .PWD }}",
   "final_space": true,
   "var": {
     "COMMENT_DO_NOT_REMOVE_READ_ME_INSTEAD" : "these hex-codes came from my current windows terminal settings.json file",
@@ -90,7 +90,7 @@
           "type": "text",
           "style": "plain",
           "foreground": "{{.Var.brightPurple}}",
-          "template": "{{if .WSL}}<{{.Var.brightWhite}}>@</>{{if .Root}}<{{.Var.brightBlack}}>\ue62a</>{{else}}<{{.Var.purple}}>\ue62a</>{{end}}{{end}}"
+          "template": "{{if .WSL}}<{{.Var.brightWhite}}> \udb80\udc4e </>{{if .Root}}<{{.Var.brightBlack}}>\ue62a</>{{else}}<{{.Var.purple}}>\ue62a</>{{end}}{{end}}"
         },
         {
           "type": "text",
@@ -127,7 +127,7 @@
           "style": "plain",
           "foreground": "{{.Var.brightWhite}}",
           "template": "{{if .Root}}#{{else}}${{end}} "
-          }
+        }
       ],
       "type": "prompt"
     }
