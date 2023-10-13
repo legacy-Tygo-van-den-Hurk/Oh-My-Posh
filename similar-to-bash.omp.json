@@ -114,12 +114,12 @@
           "type": "path"
         },
         {
-          "foreground": "{{.Var.brightYellow}}",
+          "foreground": "{{ .Var.brightYellow }}",
           "style": "plain",
           "properties": {
             "branch_icon": ""
           },
-          "template": "<{{.Var.brightBlue}}>\\</><{{.Var.brightYellow}}>{{.HEAD}}</>",
+          "template": "{{if .Root}}<{{.Var.brightBlack}}>\\{{.HEAD}}</>{{else}}<{{.Var.brightBlue}}>\\</><{{.Var.brightYellow}}>{{.HEAD}}</>{{end}}",
           "type": "git"
         },
         {
