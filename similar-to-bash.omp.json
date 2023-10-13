@@ -1,0 +1,136 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": 2,
+  "console_title_template": "{{ if .Root }}root{{ else }}{{ .UserName }}{{ end }}@{{ .HostName }}: {{if eq {{ .Username }} {{ .Folder }} }}~{{ else }}{{ .Folder }}{{ end }}",
+  "final_space": true,
+  "var": {
+    "COMMENT_DO_NOT_REMOVE_READ_ME_INSTEAD" : "these hex-codes came from my current windows terminal settings.json file",
+    "COMMENT_start" : "past after this line",
+    
+    "background": "#000000",
+    "black": "#000000",
+    "blue": "#000080",
+    "brightBlack": "#808080",
+    "brightBlue": "#0000FF",
+    "brightCyan": "#00FFFF",
+    "brightGreen": "#00FF00",
+    "brightPurple": "#FF00FF",
+    "brightRed": "#FF0000",
+    "brightWhite": "#FFFFFF",
+    "brightYellow": "#FFFF00",
+    "cursorColor": "#FFFFFF",
+    "cyan": "#008080",
+    "foreground": "#C0C0C0",
+    "green": "#008000",
+    "name": "Vintage",
+    "purple": "#800080",
+    "red": "#800000",
+    "selectionBackground": "#FFFFFF",
+    "white": "#C0C0C0",
+    "yellow": "#808000",
+
+    "COMMENT_stop" : "past before this line"
+  },
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "{{.Var.brightWhite}}",
+          "style": "plain",
+          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>root</>{{else}}<{{.Var.brightGreen}}>{{.UserName}}</>{{end}}</b>",
+          "type": "session"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "{{.Var.brightWhite}}",
+          "template": "<b>@</b>"
+        },
+        {
+          "foreground": "{{.Var.brightWhite}}",
+          "style": "plain",
+          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.HostName}}</>{{else}}<{{.Var.brightGreen}}>{{.HostName}}</>{{end}}</b>",
+          "type": "session"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "{{.Var.brightWhite}}",
+          "template": "("
+        },
+        {
+          "foreground": "{{.Var.brightWhite}}",
+          "properties": {
+            "windows": "\ue62a",
+            "linux": "\uf17c",
+            "debian" : "\uf306",
+            "ubuntu": "\uf31b",
+            "arch": "\udb82\udcc7",
+            "fedora" : "\uf30a",
+            "endeavour" : "\uf322",
+            "elementory" : "\uf309",
+            "mint" : "\udb82\udced",
+            "void" : "\uf32e",
+            "opensuse" : "\uf314",
+            "pop_OS!" : "\uf32a",
+            "rasbian" : "\uf315",
+            "kali" : "\uf327",
+            "rocky" : "\uf32b",
+            "alpine" : "\uf300",
+            "gentoo" : "\uf30d",
+            "manjaro" : "\uf312",
+            "macos": "\uf179"
+          },
+          "style": "plain",
+          "template": "{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.purple}}>{{.Icon}}</>{{end}}",
+          "type": "os"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "{{.Var.brightPurple}}",
+          "template": "{{if .WSL}}<{{.Var.brightWhite}}>@</>{{if .Root}}<{{.Var.brightBlack}}>\ue62a</>{{else}}<{{.Var.purple}}>\ue62a</>{{end}}{{end}}"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "{{.Var.brightWhite}}",
+          "template": ")"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "{{.Var.brightWhite}}",
+          "template": ":"
+        },
+        {
+          "foreground": "{{.Var.brightBlue}}",
+          "properties": {
+          "style": "full"
+        },
+          "style": "plain",
+          "template": "{{if .Root}}<{{.Var.brightBlack}}>{{.Path}}</>{{else}}<{{.Var.brightBlue}}>{{.Path}}</>{{end}}",
+          "type": "path"
+        },
+        {
+          "foreground": "{{.Var.brightYellow}}",
+          "style": "plain",
+          "properties": {
+            "branch_icon": ""
+          },
+          "template": "<{{.Var.brightBlue}}>\\</><{{.Var.brightYellow}}>{{.HEAD}}</>",
+          "type": "git"
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "{{.Var.brightWhite}}",
+          "template": "{{if .Root}}#{{else}}${{end}} "
+          }
+      ],
+      "type": "prompt"
+    }
+  ]
+}
+  
