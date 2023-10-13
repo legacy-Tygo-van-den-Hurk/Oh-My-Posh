@@ -119,7 +119,7 @@
           "properties": {
             "branch_icon": ""
           },
-          "template": "{{if .Root}}<{{.Var.brightBlack}}>\\{{.HEAD}}</>{{else}}<{{.Var.brightBlue}}>\\</><{{.Var.brightYellow}}>{{.HEAD}}</>{{end}}",
+          "template": "<{{.Var.brightWhite}}> \udb80\udc55 </>{{if .Root}}<{{.Var.brightBlack}}>{{.HEAD}}</>{{else}}<{{.Var.brightYellow}}>{{.HEAD}}</>{{end}}",
           "type": "git"
         },
         {
