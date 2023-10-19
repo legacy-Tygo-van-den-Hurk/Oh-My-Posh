@@ -36,9 +36,9 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "{{.Var.brightWhite}}",
+          "foreground": "{{ .Var.brightWhite }}",
           "style": "plain",
-          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>root</>{{else}}<{{.Var.brightGreen}}>{{.UserName}}</>{{end}}</b>",
+          "template": "<b>{{if .Root}}<{{.Var.brightRed}}>root</>{{else}}<{{.Var.brightGreen}}>{{.UserName}}</>{{end}}</b>",
           "type": "session"
         },
         {
@@ -50,7 +50,7 @@
         {
           "foreground": "{{.Var.brightWhite}}",
           "style": "plain",
-          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.HostName}}</>{{else}}<{{.Var.brightGreen}}>{{.HostName}}</>{{end}}</b>",
+          "template": "<b>{{if .Root}}<{{.Var.brightRed}}>{{.HostName}}</>{{else}}<{{.Var.brightGreen}}>{{.HostName}}</>{{end}}</b>",
           "type": "session"
         },
         {
@@ -59,6 +59,12 @@
           "foreground": "{{.Var.brightWhite}}",
           "template": "("
         },
+        {
+            "type": "text",
+            "style": "plain",
+            "foreground": "{{.Var.brightBlack}}",
+            "template": "<b>{{if .WSL}}{{if .Root}}<{{.Var.brightBlack}}>\ue62a</>{{else}}<{{.Var.brightBlack}}>\ue62a</>{{end}}<{{.Var.brightWhite}}> \uea9c </>{{end}}</b>"
+          },
         {
           "foreground": "{{.Var.brightWhite}}",
           "properties": {
@@ -83,14 +89,8 @@
             "macos": "\uf179"
           },
           "style": "plain",
-          "template": "{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.purple}}>{{.Icon}}</>{{end}}",
+          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.brightYellow}}>{{.Icon}}</>{{end}}</b>",
           "type": "os"
-        },
-        {
-          "type": "text",
-          "style": "plain",
-          "foreground": "{{.Var.brightPurple}}",
-          "template": "{{if .WSL}}<{{.Var.brightWhite}}> \udb80\udc4e </>{{if .Root}}<{{.Var.brightBlack}}>\ue62a</>{{else}}<{{.Var.purple}}>\ue62a</>{{end}}{{end}}"
         },
         {
           "type": "text",
@@ -105,28 +105,28 @@
           "template": ":"
         },
         {
-          "foreground": "{{.Var.brightBlue}}",
+          "foreground": "{{.Var.blue}}",
           "properties": {
           "style": "full"
         },
           "style": "plain",
-          "template": "{{if .Root}}<{{.Var.brightBlack}}>{{.Path}}</>{{else}}<{{.Var.brightBlue}}>{{.Path}}</>{{end}}",
+          "template": "{{if .Root}}<{{.Var.yellow}}>{{.Path}}</>{{else}}<{{.Var.brightBlue}}>{{.Path}}</>{{end}}",
           "type": "path"
         },
         {
-          "foreground": "{{ .Var.brightYellow }}",
+          "foreground": "{{ .Var.brightWhite }}",
           "style": "plain",
           "properties": {
             "branch_icon": ""
           },
-          "template": "<{{.Var.brightWhite}}> \udb80\udc55 </>{{if .Root}}<{{.Var.brightBlack}}>{{.HEAD}}</>{{else}}<{{.Var.brightYellow}}>{{.HEAD}}</>{{end}}",
+          "template": "<{{.Var.brightWhite}}> \uea9c </>{{if .Root}}<{{.Var.brightBlack}}>{{.HEAD}}</>{{else}}<{{.Var.brightYellow}}>{{.HEAD}}</>{{end}}",
           "type": "git"
         },
         {
           "type": "text",
           "style": "plain",
           "foreground": "{{.Var.brightWhite}}",
-          "template": "{{if .Root}}#{{else}}${{end}} "
+          "template": "{{if .Root}}#{{else}}${{end}}"
         }
       ],
       "type": "prompt"
