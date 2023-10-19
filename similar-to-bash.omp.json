@@ -89,13 +89,13 @@
             "macos": "\uf179"
           },
           "style": "plain",
-          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.brightYellow}}>{{.Icon}}</>{{end}}</b>",
+          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.brightBlack}}>{{.Icon}}</>{{end}}</b>",
           "type": "os"
         },
         {
           "type": "text",
           "style": "plain",
-          "foreground": "{{.Var.brightWhite}}",
+          "foreground": "{{ .Var.brightWhite }}",
           "template": ")"
         },
         {
