@@ -123,6 +123,12 @@
           "type": "git"
         },
         {
+            "type": "java",
+            "style": "powerline",
+            "foreground": "{{ .Var.brightWhite }}",
+            "temnuplate": "(<{{ .Var.brightYellow }}>\ue738 {{ .Full }}</>)"
+        }
+        {
           "type": "text",
           "style": "plain",
           "foreground": "{{.Var.brightWhite}}",
