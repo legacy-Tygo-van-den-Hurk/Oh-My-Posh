@@ -64,7 +64,7 @@
             "style": "plain",
             "foreground": "{{.Var.brightBlack}}",
             "template": "<b>{{if .WSL}}{{if .Root}}<{{.Var.brightBlack}}>\ue62a</>{{else}}<{{.Var.brightBlack}}>\ue62a</>{{end}}<{{.Var.brightWhite}}> \uea9c </>{{end}}</b>"
-          },
+        },
         {
           "foreground": "{{.Var.brightWhite}}",
           "properties": {
@@ -89,7 +89,7 @@
             "macos": "\uf179"
           },
           "style": "plain",
-          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.brightBlack}}>{{.Icon}}</>{{end}}</b>",
+          "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.brightBlack }}>{{.Icon}}</>{{end}}</b>",
           "type": "os"
         },
         {
