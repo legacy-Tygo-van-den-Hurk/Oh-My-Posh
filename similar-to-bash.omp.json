@@ -29,7 +29,8 @@
         "white": "#C0C0C0",
         "yellow": "#808000",
 
-        "COMMENT_stop" : "past before this line"
+        "COMMENT_stop" : "past before this line",
+        "betterBlue" : "#3a96dd"
     },
     "blocks": [
         {
@@ -37,40 +38,53 @@
             "segments": [
 
 
+
                 {
-                    "foreground": "{{ .Var.brightWhite }}",
+                    "type": "session",
                     "style": "plain",
-                    "template": "<b>{{if .Root}}<{{.Var.brightRed}}>root</>{{else}}<{{.Var.brightGreen}}>{{.UserName}}</>{{end}}</b>",
-                    "type": "session"
+                    "foreground_templates": [
+                        "{{ if .Root }}{{ .Var.brightRed }}{{ else }}{{ .Var.brightGreen }}{{ end }}",
+                        "{{ .Var.brightGreen }}"
+                    ],
+                    "template": "{{ if .Root }}root{{ else }}{{.UserName}}{{ end }}"
                 },
                 {
                     "type": "text",
                     "style": "plain",
-                    "foreground": "{{.Var.brightWhite}}",
+                    "foreground_templates": [
+                        "{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}",
+                        "{{ .Var.brightWhite }}"
+                    ],
                     "template": "<b>@</b>"
                 },
                 {
-                    "foreground": "{{.Var.brightWhite}}",
+                    "type": "session",
                     "style": "plain",
-                    "template": "<b>{{if .Root}}<{{.Var.brightRed}}>{{.HostName}}</>{{else}}<{{.Var.brightGreen}}>{{.HostName}}</>{{end}}</b>",
-                    "type": "session"
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightRed }}{{ else }}{{ .Var.brightGreen }}{{ end }}"],
+                    "template": "{{ .HostName }}"
                 },
 
 
                 {
                     "type": "text",
                     "style": "plain",
-                    "foreground": "{{.Var.brightWhite}}",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
                     "template": "("
                 },
                 {
                     "type": "text",
                     "style": "plain",
-                    "foreground": "{{.Var.brightBlack}}",
-                    "template": "<b>{{if .WSL}}{{if .Root}}<{{.Var.brightBlack}}>\ue62a</>{{else}}<{{.Var.brightBlack}}>\ue62a</>{{end}}<{{.Var.brightWhite}}> \uea9c </>{{end}}</b>"
+                    "foreground_templates": ["{{ if .Root }}{{.Var.white}}{{ else }}{{ .Var.white }}{{ end }}"],
+                    "template": "{{if .WSL}}\ue62a <{{ .Var.brightWhite }}>\uea9c</>{{end}}"
                 },
                 {
-                    "foreground": "{{.Var.brightWhite}}",
+                    "type": "os",
+                    "style": "plain",
+                    "foreground_templates": [
+                        "{{ if .Root }}{{ .Var.brightBlack }}{{ else }}{{ .Var.brightBlack }}{{ end }}",
+                        "{{ .Var.brightBlack }}"
+                    ],
+                    "template": "{{.Icon}}",
                     "properties": {
                         "windows": "\ue62a",
                         "linux": "\uf17c",
@@ -91,94 +105,207 @@
                         "gentoo" : "\uf30d",
                         "manjaro" : "\uf312",
                         "macos": "\uf179"
-                    },
-                    "style": "plain",
-                    "template": "<b>{{if .Root}}<{{.Var.brightBlack}}>{{.Icon}}</>{{else}}<{{.Var.brightBlack}}>{{.Icon}}</>{{end}}</b>",
-                    "type": "os"
-                },
-                {
-                    "type": "kubectl",
-                    "style": "plain",
-                    "foreground": "{{ .Var.brightWhite }}",
-                    "template": "&<{{ .Var.brightYellow }}>\udb84\udcfe</>{{if .Namespace}}@<{{ .Var.brightYellow }}>{{.Namespace}}</>{{end}}:<{{ .Var.brightYellow }}>{{ .Context }}</>",
-                    "properties": {
-                        "context_aliases": {
-                            "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh"
-                        }
                     }
                 },
                 {
                     "type": "text",
                     "style": "plain",
-                    "foreground": "{{ .Var.brightWhite }}",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
                     "template": ")"
                 },
 
 
                 {
-                    "type": "text",
+                    "type": "kubectl",
                     "style": "plain",
-                    "foreground": "{{.Var.brightWhite}}",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": "&"
+                },
+                {
+                    "type": "kubectl",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "\udb84\udcfe"
+                },
+                {
+                    "type": "kubectl",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": "{{if .Namespace}}@{{ end }}"
+                },
+                {
+                    "type": "kubectl",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "{{if .Namespace}}. }}{{.Namespace}}{{end}}"
+                },
+                {
+                    "type": "kubectl",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
                     "template": ":"
                 },
                 {
-                    "foreground": "{{.Var.blue}}",
+                    "type": "kubectl",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "{{ .Context }}"
+                },
+
+
+
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": ":"
+                },
+                {
+                    "type": "path",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.yellow }}{{ else }}{{ .Var.betterBlue }}{{ end }}"],
+                    "template": "{{ .Path }}",
                     "properties": {
                         "style": "full"
-                    },
-                    "style": "plain",
-                    "template": "{{if .Root}}<{{.Var.yellow}}>{{.Path}}</>{{else}}<{{.Var.brightBlue}}>{{.Path}}</>{{end}}",
-                    "type": "path"
+                    }
                 },
 
 
                 {
-                "foreground": "{{ .Var.brightWhite }}",
-                "style": "plain",
-                "properties": {
-                    "branch_icon": ""
+                    "type": "git",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": " \uea9c ",
+                    "properties": {}
                 },
-                "template": "<{{.Var.brightWhite}}> \uea9c </>{{if .Root}}<{{.Var.brightBlack}}>{{.HEAD}}</>{{else}}<{{.Var.brightYellow}}>{{.HEAD}}</>{{end}}",
-                "type": "git"
+                {
+                    "type": "git",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "{{.HEAD}}",
+                    "properties": {"branch_icon": ""}
                 },
-
+                {
+                    "type": "git",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": "{{ if gt .StashCount 0 }} ({{ end }}",
+                    "properties": {"fetch_stash_count": true}
+                },
+                {
+                    "type": "git",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "{{ if gt .StashCount 0 }}{{ .StashCount }} Stashes{{ end }}",
+                    "properties": {"fetch_stash_count": true}
+                },                {
+                    "type": "git",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": "{{ if gt .StashCount 0 }}){{ end }}",
+                    "properties": {"fetch_stash_count": true}
+                },
+                
 
                 {
                     "type": "java",
                     "style": "plain",
-                    "foreground": "{{ .Var.brightWhite }}",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": " (",
                     "properties": {
                         "display_mode" : "files",
                         "home_enabled" : true
-                    },
-                    "template": " (<{{ .Var.brightYellow }}>\ue738 {{ .Full }}</>)"
+                    }
+                },
+                {
+                    "type": "java",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "\ue738 {{ .Full }}",
+                    "properties": {
+                        "display_mode" : "files",
+                        "home_enabled" : true
+                    }
+                },
+                {
+                    "type": "java",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": ")",
+                    "properties": {
+                        "display_mode" : "files",
+                        "home_enabled" : true
+                    }
+                },
+
+
+                {
+                    "type": "python",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": " (",
+                    "properties": {
+                        "display_mode" : "files",
+                        "home_enabled" : true
+                    }
                 },
                 {
                     "type": "python",
                     "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "\ue73c {{ .Full }}",
                     "properties": {
                         "display_mode" : "files",
                         "home_enabled" : true
-                    },
-                    "foreground": "{{ .Var.brightWhite }}",
-                    "template": " (<{{ .Var.brightYellow }}>\ue73c {{ .Full }}</>)"
+                    }
+                },
+                {
+                    "type": "python",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": ")",
+                    "properties": {
+                        "display_mode" : "files",
+                        "home_enabled" : true
+                    }
+                },
+
+
+                {
+                    "type": "rust",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": " (",
+                    "properties": {
+                        "display_mode" : "files",
+                        "home_enabled" : true
+                    }
                 },
                 {
                     "type": "rust",
                     "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
+                    "template": "\ue7a8 {{ .Full }}",
                     "properties": {
                         "display_mode" : "files",
                         "home_enabled" : true
-                    },
-                    "foreground": "{{ .Var.brightWhite }}",
-                    "template": " (<{{ .Var.brightYellow }}>\ue7a8 {{ .Full }}</>)"
+                    }
+                },
+                {
+                    "type": "rust",
+                    "style": "plain",
+                    "foreground_templates": ["{{ if .Root }}{{ .Var.brightWhite }}{{ else }}{{ .Var.brightWhite }}{{ end }}"],
+                    "template": ")",
+                    "properties": {
+                        "display_mode" : "files",
+                        "home_enabled" : true
+                    }
                 },
 
 
                 {
                     "type": "text",
                     "style": "plain",
-                    "foreground": "{{ .Var.brightWhite }}",
                     "template": "{{ if .Root }}#{{ else }}${{ end }}"
                 }
             ],
