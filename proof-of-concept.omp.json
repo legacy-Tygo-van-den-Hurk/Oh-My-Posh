@@ -1,0 +1,120 @@
+
+
+
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "version": 2,
+    "console_title_template": "{{ if .Root }}root{{ else }}{{ .UserName }}{{ end }}@{{ .HostName }}: {{ .PWD }}",
+    "final_space": true,
+    "var": {
+        "COMMENT_DO_NOT_REMOVE_READ_ME_INSTEAD" : "these hex-codes came from my current windows terminal settings.json file",
+        "COMMENT_start" : "past after this line",
+        
+        "background": "#000000",
+        "black": "#000000",
+        "blue": "#0000FF",
+        "brightBlack": "#FFFFFF",
+        "brightBlue": "#0000FF",
+        "brightCyan": "#00FFFF",
+        "brightGreen": "#00FF00",
+        "brightPurple": "#FF00FF",
+        "brightRed": "#FF0000",
+        "brightWhite": "#FFFFFF",
+        "brightYellow": "#FFFF00",
+        "cursorColor": "#FFFFFF",
+        "cyan": "#00FFFF",
+        "foreground": "#C0C0C0",
+        "green": "#00FF00",
+        "name": "Vintage",
+        "purple": "#FF00FF",
+        "red": "#FF0000",
+        "selectionBackground": "#FFFFFF",
+        "white": "#C0C0C0",
+        "yellow": "#FFFF00",
+
+        "COMMENT_stop" : "past before this line",
+        "betterBlue" : "#3a96dd"
+    },
+    "blocks": [
+        {
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FF0000",
+                    "template": "runner"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FFFFFF",
+                    "template": " as"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FF00FF",
+                    "template": " root"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FFFFFF",
+                    "template": " on"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#00FF00",
+                    "template": " fv-az614-596"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FFFFFF",
+                    "template": " in"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#3a96dd",
+                    "template": " ~/work/oh-my-posh/oh-my-posh/website"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FFFFFF",
+                    "template": " on"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FFFF00",
+                    "template": " main"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FFFFFF",
+                    "template": " using"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FF00F0",
+                    "template": " java 21"
+                },
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#FFFFFF",
+                    "template": ":"
+                }
+
+            ],
+            "type": "prompt"
+        }
+    ]
+}
+  

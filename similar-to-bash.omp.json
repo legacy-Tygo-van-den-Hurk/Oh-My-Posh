@@ -196,7 +196,7 @@
                     "type": "git",
                     "style": "plain",
                     "foreground_templates": ["{{ if .Root }}{{ .Var.white }}{{ else }}{{ .Var.brightYellow }}{{ end }}"],
-                    "template": "{{ if gt .StashCount 0 }}{{ .StashCount }} Stashes{{ end }}",
+                    "template": "{{ if gt .StashCount 0 }}{{ .StashCount }} Stashed{{ end }}",
                     "properties": {"fetch_stash_count": true}
                 },                {
                     "type": "git",
