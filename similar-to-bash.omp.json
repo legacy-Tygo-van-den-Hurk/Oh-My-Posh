@@ -93,6 +93,18 @@
           "type": "os"
         },
         {
+            "type": "kubectl",
+            "style": "powerline",
+            "foreground": "{{ .Var.brightWhite }}",
+            "temnuplate": " ()"
+            "template": "&<{{ .Var.brightYellow }}>\udb84\udcfe</>{{if .Namespace}}@<{{ .Var.brightYellow }}>{{.Namespace}}</>{{end}}:<{{ .Var.brightYellow }}>{{ .Context }}</>",
+            "properties": {
+                "context_aliases": {
+                    "arn:aws:eks:eu-west-1:1234567890:cluster/posh": "posh"
+                }
+            }
+        },
+        {
           "type": "text",
           "style": "plain",
           "foreground": "{{ .Var.brightWhite }}",
@@ -121,6 +133,24 @@
           },
           "template": "<{{.Var.brightWhite}}> \uea9c </>{{if .Root}}<{{.Var.brightBlack}}>{{.HEAD}}</>{{else}}<{{.Var.brightYellow}}>{{.HEAD}}</>{{end}}",
           "type": "git"
+        },
+        {
+            "type": "java",
+            "style": "powerline",
+            "foreground": "{{ .Var.brightWhite }}",
+            "temnuplate": " (<{{ .Var.brightYellow }}>\ue738 {{ .Full }}</>)"
+        },
+        {
+            "type": "python",
+            "style": "powerline",
+            "foreground": "{{ .Var.brightWhite }}",
+            "temnuplate": " (<{{ .Var.brightYellow }}>\ue73c {{ .Full }}</>)"
+        },
+        {
+            "type": "rust",
+            "style": "powerline",
+            "foreground": "{{ .Var.brightWhite }}",
+            "temnuplate": " (<{{ .Var.brightYellow }}>\ue7a8 {{ .Full }}</>)"
         },
         {
           "type": "text",
